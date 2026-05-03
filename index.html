@@ -1,111 +1,743 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arrisa</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f7f1e8;
-      --surface: rgba(255, 255, 255, 0.78);
-      --text: #1d2a33;
-      --muted: #5c6b73;
-      --accent: #c85c3b;
-      --accent-2: #1f6f78;
-      --border: rgba(29, 42, 51, 0.12);
-      --shadow: 0 24px 70px rgba(31, 50, 62, 0.14);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arissa Wang · Yoga · Sound Healing · Aerial</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5ede2;
+    --cream-soft: #faf5ec;
+    --clay: #c19878;
+    --terracotta: #b87333;
+    --terracotta-deep: #8a5424;
+    --olive: #6b7548;
+    --olive-soft: #9aa890;
+    --bark: #4a3826;
+    --bark-soft: #6b5641;
+    --line: rgba(74, 56, 38, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    line-height: 1.7;
+    background-image:
+      radial-gradient(circle at 8% 5%, rgba(184,115,51,0.05), transparent 35%),
+      radial-gradient(circle at 92% 95%, rgba(107,117,72,0.06), transparent 40%);
+  }
+  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+  .tc { font-family: 'Noto Serif TC', serif; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
 
-    * {
-      box-sizing: border-box;
-    }
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245, 237, 226, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--bark);
+  }
+  .logo em { font-style: normal; color: var(--terracotta); }
+  .nav-links a {
+    margin-left: 32px;
+    font-size: 13px;
+    color: var(--bark-soft);
+    letter-spacing: 1px;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(200, 92, 59, 0.24), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(31, 111, 120, 0.2), transparent 30%),
-        linear-gradient(135deg, #fbf7f2, var(--bg));
-      padding: 24px;
-    }
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px 100px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .hero-text .eyebrow {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 76px;
+    line-height: 1.05;
+    color: var(--bark);
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .hero .name-cn {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 28px;
+    color: var(--bark-soft);
+    margin-bottom: 32px;
+    letter-spacing: 4px;
+  }
+  .quote {
+    border-left: 2px solid var(--terracotta);
+    padding: 6px 0 6px 22px;
+    margin-bottom: 36px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    color: var(--bark-soft);
+    letter-spacing: 2px;
+  }
+  .quote .en {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--olive);
+    margin-top: 8px;
+    letter-spacing: 0;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 15px 36px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--terracotta-deep); }
+  .btn-ghost {
+    border: 1px solid var(--bark);
+    color: var(--bark);
+  }
+  .btn-ghost:hover { background: var(--bark); color: var(--cream); }
 
-    main {
-      width: min(760px, 100%);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      padding: 56px 40px;
-    }
+  .hero-photo {
+    position: relative;
+    aspect-ratio: 1/1;
+    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(74, 56, 38, 0.25);
+  }
+  .hero-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, transparent 60%, rgba(107, 117, 72, 0.15));
+    pointer-events: none;
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 30px; right: 30px;
+    background: rgba(255, 245, 230, 0.95);
+    border: 1px solid var(--line);
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--bark);
+    backdrop-filter: blur(6px);
+  }
+  .hero-badge::before {
+    content: '🪷 ';
+  }
 
-    .eyebrow {
-      margin: 0 0 12px;
-      font: 700 0.8rem/1.2 Arial, sans-serif;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-2);
-    }
+  section { padding: 100px 32px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-head { text-align: center; margin-bottom: 72px; }
+  .section-head .label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-head h2 { font-size: 48px; color: var(--bark); line-height: 1.1; }
+  .section-head h2 em { font-style: italic; color: var(--olive); }
+  .section-head p {
+    max-width: 580px;
+    margin: 18px auto 0;
+    color: var(--bark-soft);
+    font-size: 16px;
+  }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-    }
+  .about {
+    background: var(--cream-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-photo {
+    aspect-ratio: 4/5;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(74, 56, 38, 0.18);
+    position: relative;
+  }
+  .about-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+  .about-text h3 { font-size: 38px; color: var(--bark); margin-bottom: 20px; line-height: 1.15; }
+  .about-text h3 em { font-style: italic; color: var(--terracotta); }
+  .about-text p { color: var(--bark-soft); margin-bottom: 18px; font-size: 16px; }
+  .credentials { margin-top: 28px; padding-top: 28px; border-top: 1px dashed var(--line); }
+  .credentials .row { display: flex; gap: 14px; margin-bottom: 12px; align-items: baseline; }
+  .credentials .row strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--terracotta);
+    min-width: 70px;
+  }
+  .credentials .row span { color: var(--bark-soft); font-size: 14px; }
 
-    p {
-      margin: 24px 0 0;
-      max-width: 38rem;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--muted);
-    }
+  .offerings .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .offer-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .offer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(74, 56, 38, 0.12);
+  }
+  .offer-photo {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+  }
+  .offer-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .offer-card:hover .offer-photo img { transform: scale(1.05); }
+  .offer-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(74, 56, 38, 0.35));
+  }
+  .offer-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
+  .offer-body h3 { font-size: 26px; color: var(--bark); margin-bottom: 6px; }
+  .offer-body .cn { font-family: 'Noto Serif TC', serif; font-size: 14px; color: var(--terracotta); letter-spacing: 3px; margin-bottom: 16px; display: block; }
+  .offer-body p { color: var(--bark-soft); font-size: 14.5px; margin-bottom: 18px; flex: 1; }
+  .offer-body ul { list-style: none; padding: 0; }
+  .offer-body ul li {
+    padding: 8px 0;
+    font-size: 13.5px;
+    color: var(--bark-soft);
+    border-top: 1px solid var(--line);
+  }
 
-    .cta {
-      display: inline-block;
-      margin-top: 32px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font: 600 0.98rem/1 Arial, sans-serif;
-      transition: transform 180ms ease, box-shadow 180ms ease;
-      box-shadow: 0 12px 28px rgba(200, 92, 59, 0.28);
-    }
+  .studio { background: var(--cream-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .studio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 14px;
+  }
+  .studio-tile {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bark);
+  }
+  .studio-tile img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .studio-tile:hover img { transform: scale(1.06); }
+  .studio-tile .caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px 18px 16px;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+  .studio-tile.tall { grid-row: span 2; }
+  .studio-tile.wide { grid-column: span 2; }
 
-    .cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 34px rgba(200, 92, 59, 0.32);
-    }
+  .schedule .table {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 30px rgba(74, 56, 38, 0.05);
+  }
+  .schedule .row {
+    display: grid;
+    grid-template-columns: 110px 1fr 200px 130px;
+    gap: 24px;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .schedule .row:last-child { border-bottom: none; }
+  .schedule .row.head {
+    background: var(--cream-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bark-soft);
+  }
+  .schedule .day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--terracotta);
+    font-style: italic;
+  }
+  .schedule .class-name strong { display: block; color: var(--bark); font-size: 15px; margin-bottom: 2px; }
+  .schedule .class-name span { font-size: 13px; color: var(--bark-soft); }
+  .schedule .time { font-size: 14px; color: var(--bark-soft); }
+  .schedule .level {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .level.all { background: rgba(154, 168, 144, 0.2); color: var(--olive); }
+  .level.beg { background: rgba(184, 115, 51, 0.15); color: var(--terracotta); }
+  .level.int { background: rgba(74, 56, 38, 0.12); color: var(--bark); }
 
-    @media (max-width: 640px) {
-      main {
-        padding: 40px 24px;
-      }
+  .community { background: var(--cream-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .community-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .community-photo {
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(74, 56, 38, 0.15);
+  }
+  .community-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .testimonial {
+    background: white;
+    padding: 36px 36px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .testimonial .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    color: var(--terracotta);
+    line-height: 0.5;
+    margin-bottom: 18px;
+  }
+  .testimonial p {
+    font-style: italic;
+    color: var(--bark-soft);
+    font-size: 15px;
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+  .testimonial .author strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--bark);
+  }
+  .testimonial .author span { font-size: 12px; color: var(--bark-soft); letter-spacing: 1px; margin-left: 8px; }
 
-      p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  .contact {
+    text-align: center;
+    background: linear-gradient(180deg, var(--cream) 0%, #ead9bc 100%);
+  }
+  .contact h2 { margin-bottom: 16px; font-size: 56px; color: var(--bark); }
+  .contact h2 em { font-style: italic; color: var(--terracotta); }
+  .contact p { color: var(--bark-soft); max-width: 540px; margin: 0 auto 36px; font-size: 16px; }
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  .contact-info .item .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+  .contact-info .item .value {
+    font-size: 16px;
+    color: var(--bark);
+  }
+
+  footer {
+    background: var(--bark);
+    color: var(--cream);
+    padding: 50px 32px 36px;
+    text-align: center;
+  }
+  footer .logo { color: var(--cream); display: inline-block; margin-bottom: 12px; }
+  footer .logo em { color: var(--terracotta); }
+  footer p { font-size: 13px; color: rgba(245, 237, 226, 0.6); margin-top: 8px; }
+  footer .socials { margin: 18px 0; }
+  footer .socials a {
+    margin: 0 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245, 237, 226, 0.7);
+  }
+  footer .socials a:hover { color: var(--terracotta); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 50px 24px 70px; gap: 50px; }
+    .hero h1 { font-size: 50px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .offerings .grid { grid-template-columns: 1fr; }
+    .studio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+    .studio-tile.wide { grid-column: span 2; }
+    .community-layout { grid-template-columns: 1fr; }
+    .schedule .row { grid-template-columns: 1fr; gap: 8px; padding: 18px 20px; }
+    .schedule .row.head { display: none; }
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .section-head h2 { font-size: 36px; }
+  }
+</style>
 </head>
 <body>
-  <main>
-    <p class="eyebrow">Welcome</p>
-    <h1>Arrisa</h1>
-    <p>
-      This is the first page for the Arrisa project. Replace this with your own
-      content, or use it as the starting point for a larger static website.
-    </p>
-    <a class="cta" href="https://github.com/huilucs/arrisa">View the repository</a>
-  </main>
+
+<nav class="top">
+  <div class="nav-inner">
+    <div class="logo">ARISSA <em>·</em> YOGA</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#offerings">Offerings</a>
+      <a href="#studio">Studio</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">瑜 伽 · 頌 缽 · 空 中</div>
+    <h1>Move with breath,<br><em>rest in sound.</em></h1>
+    <div class="name-cn tc">王 芸 喬 · Arissa</div>
+    <div class="quote tc">
+      忘記已失去；珍惜已擁有
+      <span class="en">Release what's lost. Cherish what remains.</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#schedule">View Schedule</a>
+      <a class="btn btn-ghost" href="#contact">Book a Session</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="self1.jpg" alt="Arissa with singing bowl">
+    <div class="hero-badge">Sound · Movement · Stillness</div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="self10.jpg" alt="Arissa outdoors">
+      </div>
+      <div class="about-text">
+        <h3>A practice rooted in <em>presence,</em><br>shaped by curiosity.</h3>
+        <p>I'm Arissa — a yoga teacher, sound healer, and aerial practitioner based in Taiwan. My path winds through mat practice, singing bowls, silk hammocks, and the ocean — all of them ways of returning to the body and the breath.</p>
+        <p>I believe a good practice is generous: it has room for the child taking her first tree pose, for the elder finding new range in her hips, for the busy professional unwinding after work. My classes are calm, embodied, and approachable — never performative.</p>
+        <div class="credentials">
+          <div class="row"><strong>RYT-200</strong><span>Registered Yoga Teacher · Hatha & Vinyasa</span></div>
+          <div class="row"><strong>Sound</strong><span>Tibetan singing bowl healing certification</span></div>
+          <div class="row"><strong>Aerial</strong><span>Aerial yoga teacher training</span></div>
+          <div class="row"><strong>Water</strong><span>Certified freediver — breathwork & body awareness</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offerings" id="offerings">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">What I teach · 課程介紹</div>
+      <h2>Three doorways into the <em>same stillness.</em></h2>
+      <p>Whether you arrive on a mat, in a silk hammock, or lying beneath the resonance of a singing bowl, the destination is the same — a quieter body, a clearer mind.</p>
+    </div>
+    <div class="grid">
+      <div class="offer-card">
+        <div class="offer-photo">
+          <img src="self8.jpg" alt="Multi-generational mat yoga class">
+        </div>
+        <div class="offer-body">
+          <h3>Mat Yoga</h3>
+          <span class="cn tc">墊 上 瑜 伽</span>
+          <p>Hatha and vinyasa flows that build strength gently and unwind tight shoulders, hips, and lower backs.</p>
+          <ul>
+            <li>Beginner-friendly group classes</li>
+            <li>Restorative & gentle yin</li>
+            <li>Multi-generational classes (kids → seniors)</li>
+            <li>Private 1:1 sessions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-photo">
+          <img src="self7.jpg" alt="Sound healing with singing bowl">
+        </div>
+        <div class="offer-body">
+          <h3>Sound Healing</h3>
+          <span class="cn tc">頌 缽 療 癒</span>
+          <p>A guided journey with Tibetan singing bowls, gongs, and chimes. Lie back, close your eyes, and let resonance do the work.</p>
+          <ul>
+            <li>Group sound baths (60–75 min)</li>
+            <li>Yoga + sound combo sessions</li>
+            <li>1:1 sound healing for stress & sleep</li>
+            <li>Workshops for schools & companies</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-photo">
+          <img src="self6.jpg" alt="Aerial yoga in silk hammock">
+        </div>
+        <div class="offer-body">
+          <h3>Aerial Yoga</h3>
+          <span class="cn tc">空 中 瑜 伽</span>
+          <p>Suspended in soft silks, the spine decompresses, the core engages, and inversions become accessible — and joyful.</p>
+          <ul>
+            <li>Beginner aerial fundamentals</li>
+            <li>Aerial flow & strength</li>
+            <li>Restorative aerial / hammock rest</li>
+            <li>Small-group classes (max 8)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">The Space · 教 室 一 隅</div>
+      <h2>A studio that feels like an <em>exhale.</em></h2>
+      <p>Soft daylight, wooden floors, mirrored walls, and a wall of singing bowls waiting their turn. Drop your shoes at the door and stay a while.</p>
+    </div>
+    <div class="studio-grid">
+      <div class="studio-tile tall">
+        <img src="self4.jpg" alt="Studio with mats">
+        <div class="caption">Morning light, ready mats</div>
+      </div>
+      <div class="studio-tile wide">
+        <img src="self11.jpg" alt="Sound bath setup">
+        <div class="caption">A community sound bath</div>
+      </div>
+      <div class="studio-tile">
+        <img src="self5.jpg" alt="Aerial silks">
+        <div class="caption">Silks, suspended</div>
+      </div>
+      <div class="studio-tile">
+        <img src="self9.jpg" alt="Festive aerial session">
+        <div class="caption">Seasonal sessions</div>
+      </div>
+      <div class="studio-tile tall">
+        <img src="self7.jpg" alt="Teaching with singing bowl">
+        <div class="caption">Live, in resonance</div>
+      </div>
+      <div class="studio-tile">
+        <img src="self6.jpg" alt="Aerial yoga class">
+        <div class="caption">Aerial in motion</div>
+      </div>
+      <div class="studio-tile">
+        <img src="self8.jpg" alt="Multi-generational class">
+        <div class="caption">Practice without age</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">Weekly Rhythm · 課 程 表</div>
+      <h2>This week's <em>regular classes.</em></h2>
+      <p>Drop-in, 8-class pass, or monthly unlimited. Private sessions available by appointment — message me to book.</p>
+    </div>
+    <div class="table">
+      <div class="row head">
+        <div>Day</div><div>Class</div><div>Time</div><div>Level</div>
+      </div>
+      <div class="row">
+        <div class="day">Mon</div>
+        <div class="class-name"><strong>Gentle Hatha · 溫和哈達</strong><span>Slow flow + breathwork</span></div>
+        <div class="time">7:00 – 8:00 AM</div>
+        <div><span class="level all">All Levels</span></div>
+      </div>
+      <div class="row">
+        <div class="day">Tue</div>
+        <div class="class-name"><strong>Aerial Fundamentals · 空中基礎</strong><span>Inversions, wraps, gentle flips</span></div>
+        <div class="time">7:30 – 9:00 PM</div>
+        <div><span class="level beg">Beginner</span></div>
+      </div>
+      <div class="row">
+        <div class="day">Wed</div>
+        <div class="class-name"><strong>Sound Bath · 頌缽放鬆</strong><span>75-minute guided sound journey</span></div>
+        <div class="time">8:00 – 9:15 PM</div>
+        <div><span class="level all">All Levels</span></div>
+      </div>
+      <div class="row">
+        <div class="day">Thu</div>
+        <div class="class-name"><strong>Vinyasa Flow · 流動瑜伽</strong><span>Stronger pace, creative sequences</span></div>
+        <div class="time">7:30 – 8:45 PM</div>
+        <div><span class="level int">Intermediate</span></div>
+      </div>
+      <div class="row">
+        <div class="day">Fri</div>
+        <div class="class-name"><strong>Family Yoga · 親子瑜伽</strong><span>Multi-generational class — kids welcome</span></div>
+        <div class="time">5:00 – 6:00 PM</div>
+        <div><span class="level all">All Levels</span></div>
+      </div>
+      <div class="row">
+        <div class="day">Sat</div>
+        <div class="class-name"><strong>Restorative + Sound · 修復瑜伽 + 頌缽</strong><span>The week's gentle landing</span></div>
+        <div class="time">10:00 – 11:30 AM</div>
+        <div><span class="level all">All Levels</span></div>
+      </div>
+      <div class="row">
+        <div class="day">Sun</div>
+        <div class="class-name"><strong>Outdoor Practice · 戶外練習</strong><span>Park session (weather permitting)</span></div>
+        <div class="time">8:00 – 9:15 AM</div>
+        <div><span class="level all">All Levels</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="community">
+  <div class="container">
+    <div class="section-head">
+      <div class="label">Community · 社 群 之 聲</div>
+      <h2>What people <em>carry home.</em></h2>
+    </div>
+    <div class="community-layout">
+      <div class="community-photo">
+        <img src="self15.jpg" alt="Yoga community group photo">
+      </div>
+      <div>
+        <div class="testimonial">
+          <div class="quote-mark">"</div>
+          <p>Arissa's sound bath is the only 75 minutes of the week I truly let go. I leave feeling like I just slept for ten hours.</p>
+          <div class="author"><strong>Mei L.</strong><span>SOUND BATH STUDENT</span></div>
+        </div>
+        <div class="testimonial">
+          <div class="quote-mark">"</div>
+          <p>I came in skeptical of aerial yoga and left grinning upside down. She makes the impossible feel safe.</p>
+          <div class="author"><strong>James W.</strong><span>AERIAL FUNDAMENTALS</span></div>
+        </div>
+        <div class="testimonial">
+          <div class="quote-mark">"</div>
+          <p>My eight-year-old asks every Friday if we're going to yoga. That's never happened with any other class.</p>
+          <div class="author"><strong>Yi-Ting C.</strong><span>FAMILY YOGA PARENT</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Begin <em>here.</em></h2>
+    <p>New students get one complimentary trial class. Send a message and I'll help you find the right starting point — mat, sound, or sky.</p>
+
+    <div class="contact-info">
+      <div class="item">
+        <div class="label">Message</div>
+        <div class="value">m.me/yunchiao88</div>
+      </div>
+      <div class="item">
+        <div class="label">Email</div>
+        <div class="value">arissa@example.com</div>
+      </div>
+      <div class="item">
+        <div class="label">Studio</div>
+        <div class="value">Taipei, Taiwan</div>
+      </div>
+    </div>
+
+    <a class="btn btn-primary" href="https://www.facebook.com/yunchiao88" target="_blank" rel="noopener">Send a message →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">ARISSA <em>·</em> YOGA</div>
+  <div class="socials">
+    <a href="https://www.facebook.com/yunchiao88" target="_blank" rel="noopener">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">LINE</a>
+  </div>
+  <p>© 2026 Yunchiao Wang (Arissa). All rights reserved.</p>
+  <p class="tc" style="margin-top:4px;">忘記已失去；珍惜已擁有 🌿</p>
+</footer>
+
 </body>
 </html>
