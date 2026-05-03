@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arissa Wang · Yoga · Sound Healing · Aerial</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>王芸喬 Arissa · 瑜伽 · 頌缽 · 空中</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #f5ede2;
@@ -21,19 +21,23 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Noto Sans TC', 'Nunito', sans-serif;
     background: var(--cream);
     color: var(--bark);
-    line-height: 1.7;
+    line-height: 1.85;
     background-image:
       radial-gradient(circle at 8% 5%, rgba(184,115,51,0.05), transparent 35%),
       radial-gradient(circle at 92% 95%, rgba(107,117,72,0.06), transparent 40%);
   }
-  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
-  .tc { font-family: 'Noto Serif TC', serif; }
+  h1, h2, h3, .serif {
+    font-family: 'Noto Serif TC', 'Cormorant Garamond', serif;
+    font-weight: 500;
+  }
+  .latin { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
   a { color: inherit; text-decoration: none; }
   img { display: block; max-width: 100%; }
 
+  /* ===== Top Nav ===== */
   nav.top {
     position: sticky; top: 0; z-index: 50;
     background: rgba(245, 237, 226, 0.92);
@@ -49,20 +53,31 @@
     align-items: center;
   }
   .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    letter-spacing: 4px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    letter-spacing: 6px;
     color: var(--bark);
+    font-weight: 500;
   }
-  .logo em { font-style: normal; color: var(--terracotta); }
+  .logo em { font-style: normal; color: var(--terracotta); margin: 0 4px; }
   .nav-links a {
-    margin-left: 32px;
-    font-size: 13px;
+    margin-left: 28px;
+    font-size: 14px;
     color: var(--bark-soft);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
   }
   .nav-links a:hover { color: var(--terracotta); }
+  .nav-links a.lang {
+    margin-left: 36px;
+    color: var(--terracotta);
+    border-left: 1px solid var(--line);
+    padding-left: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
 
+  /* ===== Hero ===== */
   .hero {
     max-width: 1200px;
     margin: 0 auto;
@@ -80,36 +95,40 @@
     margin-bottom: 24px;
   }
   .hero h1 {
-    font-size: 76px;
-    line-height: 1.05;
+    font-size: 64px;
+    line-height: 1.2;
     color: var(--bark);
     margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
   }
   .hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--terracotta);
   }
   .hero .name-cn {
     font-family: 'Noto Serif TC', serif;
-    font-size: 28px;
+    font-size: 26px;
     color: var(--bark-soft);
     margin-bottom: 32px;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
+    font-weight: 400;
   }
+  .hero .name-cn .latin { font-style: italic; color: var(--olive); margin-left: 12px; font-size: 22px; }
   .quote {
     border-left: 2px solid var(--terracotta);
     padding: 6px 0 6px 22px;
     margin-bottom: 36px;
     font-family: 'Noto Serif TC', serif;
-    font-size: 17px;
+    font-size: 19px;
     color: var(--bark-soft);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
   }
   .quote .en {
     display: block;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--olive);
     margin-top: 8px;
     letter-spacing: 0;
@@ -119,10 +138,9 @@
     display: inline-block;
     padding: 15px 36px;
     border-radius: 30px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    letter-spacing: 3px;
     transition: all 0.25s ease;
     cursor: pointer;
   }
@@ -163,36 +181,42 @@
     border: 1px solid var(--line);
     padding: 12px 18px;
     border-radius: 30px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
+    font-family: 'Noto Serif TC', serif;
     font-size: 14px;
     color: var(--bark);
     backdrop-filter: blur(6px);
+    letter-spacing: 3px;
   }
-  .hero-badge::before {
-    content: '🪷 ';
-  }
+  .hero-badge::before { content: '🪷 '; }
 
+  /* ===== Section base ===== */
   section { padding: 100px 32px; }
   .container { max-width: 1200px; margin: 0 auto; }
   .section-head { text-align: center; margin-bottom: 72px; }
   .section-head .label {
     font-family: 'Noto Serif TC', serif;
     font-size: 12px;
-    letter-spacing: 6px;
+    letter-spacing: 8px;
     color: var(--terracotta);
-    text-transform: uppercase;
     margin-bottom: 14px;
   }
-  .section-head h2 { font-size: 48px; color: var(--bark); line-height: 1.1; }
-  .section-head h2 em { font-style: italic; color: var(--olive); }
+  .section-head h2 {
+    font-size: 42px;
+    color: var(--bark);
+    line-height: 1.3;
+    letter-spacing: 4px;
+    font-weight: 500;
+  }
+  .section-head h2 em { font-style: normal; color: var(--olive); }
   .section-head p {
-    max-width: 580px;
+    max-width: 600px;
     margin: 18px auto 0;
     color: var(--bark-soft);
     font-size: 16px;
+    letter-spacing: 1px;
   }
 
+  /* ===== About ===== */
   .about {
     background: var(--cream-soft);
     border-top: 1px solid var(--line);
@@ -216,19 +240,28 @@
     object-fit: cover;
     object-position: center 25%;
   }
-  .about-text h3 { font-size: 38px; color: var(--bark); margin-bottom: 20px; line-height: 1.15; }
-  .about-text h3 em { font-style: italic; color: var(--terracotta); }
-  .about-text p { color: var(--bark-soft); margin-bottom: 18px; font-size: 16px; }
+  .about-text h3 {
+    font-size: 34px;
+    color: var(--bark);
+    margin-bottom: 24px;
+    line-height: 1.4;
+    letter-spacing: 3px;
+    font-weight: 500;
+  }
+  .about-text h3 em { font-style: normal; color: var(--terracotta); }
+  .about-text p { color: var(--bark-soft); margin-bottom: 18px; font-size: 16px; letter-spacing: 0.5px; }
   .credentials { margin-top: 28px; padding-top: 28px; border-top: 1px dashed var(--line); }
-  .credentials .row { display: flex; gap: 14px; margin-bottom: 12px; align-items: baseline; }
+  .credentials .row { display: flex; gap: 18px; margin-bottom: 14px; align-items: baseline; }
   .credentials .row strong {
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
     color: var(--terracotta);
-    min-width: 70px;
+    min-width: 80px;
+    font-weight: 500;
   }
-  .credentials .row span { color: var(--bark-soft); font-size: 14px; }
+  .credentials .row span { color: var(--bark-soft); font-size: 14px; letter-spacing: 1px; }
 
+  /* ===== Offerings ===== */
   .offerings .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -265,17 +298,32 @@
     background: linear-gradient(180deg, transparent 60%, rgba(74, 56, 38, 0.35));
   }
   .offer-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
-  .offer-body h3 { font-size: 26px; color: var(--bark); margin-bottom: 6px; }
-  .offer-body .cn { font-family: 'Noto Serif TC', serif; font-size: 14px; color: var(--terracotta); letter-spacing: 3px; margin-bottom: 16px; display: block; }
-  .offer-body p { color: var(--bark-soft); font-size: 14.5px; margin-bottom: 18px; flex: 1; }
+  .offer-body h3 {
+    font-size: 26px;
+    color: var(--bark);
+    margin-bottom: 4px;
+    letter-spacing: 4px;
+    font-weight: 500;
+  }
+  .offer-body .latin {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--terracotta);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .offer-body p { color: var(--bark-soft); font-size: 14.5px; margin-bottom: 18px; flex: 1; line-height: 1.8; }
   .offer-body ul { list-style: none; padding: 0; }
   .offer-body ul li {
-    padding: 8px 0;
-    font-size: 13.5px;
+    padding: 10px 0;
+    font-size: 14px;
     color: var(--bark-soft);
     border-top: 1px solid var(--line);
   }
 
+  /* ===== Studio Gallery ===== */
   .studio { background: var(--cream-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .studio-grid {
     display: grid;
@@ -301,14 +349,14 @@
     padding: 24px 18px 16px;
     background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
     color: white;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 17px;
-    letter-spacing: 1px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    letter-spacing: 3px;
   }
   .studio-tile.tall { grid-row: span 2; }
   .studio-tile.wide { grid-column: span 2; }
 
+  /* ===== Schedule ===== */
   .schedule .table {
     background: white;
     border-radius: 16px;
@@ -327,33 +375,32 @@
   .schedule .row:last-child { border-bottom: none; }
   .schedule .row.head {
     background: var(--cream-soft);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif TC', serif;
     font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: 4px;
     color: var(--bark-soft);
   }
   .schedule .day {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif TC', serif;
     font-size: 22px;
     color: var(--terracotta);
-    font-style: italic;
+    letter-spacing: 2px;
   }
-  .schedule .class-name strong { display: block; color: var(--bark); font-size: 15px; margin-bottom: 2px; }
+  .schedule .class-name strong { display: block; color: var(--bark); font-size: 15px; margin-bottom: 4px; letter-spacing: 1px; }
   .schedule .class-name span { font-size: 13px; color: var(--bark-soft); }
-  .schedule .time { font-size: 14px; color: var(--bark-soft); }
+  .schedule .time { font-size: 14px; color: var(--bark-soft); font-family: 'Cormorant Garamond', serif; }
   .schedule .level {
     display: inline-block;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
   }
   .level.all { background: rgba(154, 168, 144, 0.2); color: var(--olive); }
   .level.beg { background: rgba(184, 115, 51, 0.15); color: var(--terracotta); }
   .level.int { background: rgba(74, 56, 38, 0.12); color: var(--bark); }
 
+  /* ===== Community ===== */
   .community { background: var(--cream-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .community-layout {
     display: grid;
@@ -370,7 +417,7 @@
   .community-photo img { width: 100%; height: 100%; object-fit: cover; }
   .testimonial {
     background: white;
-    padding: 36px 36px;
+    padding: 32px 36px;
     border-radius: 14px;
     border: 1px solid var(--line);
     margin-bottom: 18px;
@@ -383,38 +430,45 @@
     margin-bottom: 18px;
   }
   .testimonial p {
-    font-style: italic;
     color: var(--bark-soft);
     font-size: 15px;
     margin-bottom: 18px;
-    line-height: 1.7;
+    line-height: 1.85;
+    letter-spacing: 0.5px;
   }
   .testimonial .author strong {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
     color: var(--bark);
+    letter-spacing: 1px;
   }
-  .testimonial .author span { font-size: 12px; color: var(--bark-soft); letter-spacing: 1px; margin-left: 8px; }
+  .testimonial .author span { font-size: 12px; color: var(--bark-soft); letter-spacing: 2px; margin-left: 10px; }
 
+  /* ===== Contact ===== */
   .contact {
     text-align: center;
     background: linear-gradient(180deg, var(--cream) 0%, #ead9bc 100%);
   }
-  .contact h2 { margin-bottom: 16px; font-size: 56px; color: var(--bark); }
-  .contact h2 em { font-style: italic; color: var(--terracotta); }
-  .contact p { color: var(--bark-soft); max-width: 540px; margin: 0 auto 36px; font-size: 16px; }
+  .contact h2 {
+    margin-bottom: 16px;
+    font-size: 48px;
+    color: var(--bark);
+    letter-spacing: 6px;
+    font-weight: 500;
+  }
+  .contact h2 em { font-style: normal; color: var(--terracotta); }
+  .contact p { color: var(--bark-soft); max-width: 540px; margin: 0 auto 36px; font-size: 16px; letter-spacing: 1px; }
   .contact-info {
     display: flex;
     justify-content: center;
-    gap: 48px;
+    gap: 56px;
     margin: 40px 0;
     flex-wrap: wrap;
   }
   .contact-info .item .label {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Serif TC', serif;
     font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: 4px;
     color: var(--terracotta);
     margin-bottom: 8px;
   }
@@ -423,6 +477,7 @@
     color: var(--bark);
   }
 
+  /* ===== Footer ===== */
   footer {
     background: var(--bark);
     color: var(--cream);
@@ -431,20 +486,20 @@
   }
   footer .logo { color: var(--cream); display: inline-block; margin-bottom: 12px; }
   footer .logo em { color: var(--terracotta); }
-  footer p { font-size: 13px; color: rgba(245, 237, 226, 0.6); margin-top: 8px; }
+  footer p { font-size: 13px; color: rgba(245, 237, 226, 0.6); margin-top: 8px; letter-spacing: 1px; }
   footer .socials { margin: 18px 0; }
   footer .socials a {
-    margin: 0 10px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    margin: 0 12px;
+    font-size: 13px;
+    letter-spacing: 3px;
     color: rgba(245, 237, 226, 0.7);
   }
   footer .socials a:hover { color: var(--terracotta); }
 
+  /* ===== Responsive ===== */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; padding: 50px 24px 70px; gap: 50px; }
-    .hero h1 { font-size: 50px; }
+    .hero h1 { font-size: 42px; letter-spacing: 1px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .offerings .grid { grid-template-columns: 1fr; }
     .studio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
@@ -454,7 +509,7 @@
     .schedule .row.head { display: none; }
     .nav-links { display: none; }
     section { padding: 70px 20px; }
-    .section-head h2 { font-size: 36px; }
+    .section-head h2 { font-size: 30px; }
   }
 </style>
 </head>
@@ -462,281 +517,291 @@
 
 <nav class="top">
   <div class="nav-inner">
-    <div class="logo">ARISSA <em>·</em> YOGA</div>
+    <div class="logo">ARISSA <em>·</em> 瑜伽</div>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#offerings">Offerings</a>
-      <a href="#studio">Studio</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">關於</a>
+      <a href="#offerings">課程</a>
+      <a href="#studio">教室</a>
+      <a href="#schedule">課表</a>
+      <a href="#contact">聯繫</a>
+      <a href="index.html" class="lang">EN</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <div class="eyebrow">瑜 伽 · 頌 缽 · 空 中</div>
-    <h1>Move with breath,<br><em>rest in sound.</em></h1>
-    <div class="name-cn tc">王 芸 喬 · Arissa</div>
-    <div class="quote tc">
-      忘記已失去；珍惜已擁有
-      <span class="en">Release what's lost. Cherish what remains.</span>
+    <h1>隨息流動，<br><em>於聲安住。</em></h1>
+    <div class="name-cn">王 芸 喬<span class="latin">Arissa Wang</span></div>
+    <div class="quote">
+      呼吸之間，回到自己
+      <span class="en">Between breaths, return to yourself.</span>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#schedule">View Schedule</a>
-      <a class="btn btn-ghost" href="#contact">Book a Session</a>
+      <a class="btn btn-primary" href="#schedule">查看課表</a>
+      <a class="btn btn-ghost" href="#contact">預約課程</a>
     </div>
   </div>
   <div class="hero-photo">
-    <img src="self1.jpg" alt="Arissa with singing bowl">
-    <div class="hero-badge">Sound · Movement · Stillness</div>
+    <img src="self1.jpg" alt="Arissa 與頌缽">
+    <div class="hero-badge">聲音 · 動作 · 寧靜</div>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-photo">
-        <img src="self10.jpg" alt="Arissa outdoors">
+        <img src="self10.jpg" alt="Arissa 戶外身影">
       </div>
       <div class="about-text">
-        <h3>A practice rooted in <em>presence,</em><br>shaped by curiosity.</h3>
-        <p>I'm Arissa — a yoga teacher, sound healer, and aerial practitioner based in Taiwan. My path winds through mat practice, singing bowls, silk hammocks, and the ocean — all of them ways of returning to the body and the breath.</p>
-        <p>I believe a good practice is generous: it has room for the child taking her first tree pose, for the elder finding new range in her hips, for the busy professional unwinding after work. My classes are calm, embodied, and approachable — never performative.</p>
+        <h3>在<em>當下</em>紮根，<br>以好奇前行。</h3>
+        <p>我是 Arissa——一位在台灣執業的瑜伽老師、頌缽療癒師，也是空中瑜伽的練習者。我的修行之路蜿蜒於墊上練習、頌缽、空中絲綢與海洋之間，它們都是回到身體與呼吸的不同方式。</p>
+        <p>我相信好的練習是寬厚的：能容納第一次嘗試樹式的孩子、在髖部找到新空間的長者，以及下班後想讓神經系統慢下來的上班族。我的課程沉靜、紮實、平易近人——從不為表演而存在。</p>
         <div class="credentials">
-          <div class="row"><strong>RYT-200</strong><span>Registered Yoga Teacher · Hatha & Vinyasa</span></div>
-          <div class="row"><strong>Sound</strong><span>Tibetan singing bowl healing certification</span></div>
-          <div class="row"><strong>Aerial</strong><span>Aerial yoga teacher training</span></div>
-          <div class="row"><strong>Water</strong><span>Certified freediver — breathwork & body awareness</span></div>
+          <div class="row"><strong>RYT-200</strong><span>美國瑜伽聯盟註冊教師 · 哈達與流動瑜伽</span></div>
+          <div class="row"><strong>頌缽</strong><span>西藏頌缽療癒師認證</span></div>
+          <div class="row"><strong>空中</strong><span>空中瑜伽教師訓練結業</span></div>
+          <div class="row"><strong>水域</strong><span>自由潛水認證 — 呼吸與身體覺察</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- OFFERINGS -->
 <section class="offerings" id="offerings">
   <div class="container">
     <div class="section-head">
-      <div class="label">What I teach · 課程介紹</div>
-      <h2>Three doorways into the <em>same stillness.</em></h2>
-      <p>Whether you arrive on a mat, in a silk hammock, or lying beneath the resonance of a singing bowl, the destination is the same — a quieter body, a clearer mind.</p>
+      <div class="label">課 程 介 紹</div>
+      <h2>三 扇 門，通 向 同 一 份 <em>寧 靜</em>。</h2>
+      <p>無論你來到墊上、躺進空中絲綢，或臥於頌缽的共振之下，目的地都是同一個——一個更安靜的身體，一顆更清明的心。</p>
     </div>
     <div class="grid">
+
       <div class="offer-card">
         <div class="offer-photo">
-          <img src="self8.jpg" alt="Multi-generational mat yoga class">
+          <img src="self8.jpg" alt="跨世代墊上課程">
         </div>
         <div class="offer-body">
-          <h3>Mat Yoga</h3>
-          <span class="cn tc">墊 上 瑜 伽</span>
-          <p>Hatha and vinyasa flows that build strength gently and unwind tight shoulders, hips, and lower backs.</p>
+          <h3>墊 上 瑜 伽</h3>
+          <span class="latin">Mat Yoga</span>
+          <p>哈達與流動瑜伽，溫和地建立力量，舒展緊繃的肩膀、髖部與下背。</p>
           <ul>
-            <li>Beginner-friendly group classes</li>
-            <li>Restorative & gentle yin</li>
-            <li>Multi-generational classes (kids → seniors)</li>
-            <li>Private 1:1 sessions</li>
+            <li>初學者友善的團體課</li>
+            <li>修復與溫和陰瑜伽</li>
+            <li>跨世代課程（兒童至長者）</li>
+            <li>一對一私人課程</li>
           </ul>
         </div>
       </div>
 
       <div class="offer-card">
         <div class="offer-photo">
-          <img src="self7.jpg" alt="Sound healing with singing bowl">
+          <img src="self7.jpg" alt="頌缽教學">
         </div>
         <div class="offer-body">
-          <h3>Sound Healing</h3>
-          <span class="cn tc">頌 缽 療 癒</span>
-          <p>A guided journey with Tibetan singing bowls, gongs, and chimes. Lie back, close your eyes, and let resonance do the work.</p>
+          <h3>頌 缽 療 癒</h3>
+          <span class="latin">Sound Healing</span>
+          <p>一段以西藏頌缽、銅鑼與鈴聲引導的旅程。躺下、閉上眼，讓共振為你工作。</p>
           <ul>
-            <li>Group sound baths (60–75 min)</li>
-            <li>Yoga + sound combo sessions</li>
-            <li>1:1 sound healing for stress & sleep</li>
-            <li>Workshops for schools & companies</li>
+            <li>團體頌缽（60–75 分鐘）</li>
+            <li>瑜伽 + 頌缽結合課程</li>
+            <li>一對一頌缽（壓力與睡眠調理）</li>
+            <li>校園與企業工作坊</li>
           </ul>
         </div>
       </div>
 
       <div class="offer-card">
         <div class="offer-photo">
-          <img src="self6.jpg" alt="Aerial yoga in silk hammock">
+          <img src="self6.jpg" alt="空中瑜伽課程">
         </div>
         <div class="offer-body">
-          <h3>Aerial Yoga</h3>
-          <span class="cn tc">空 中 瑜 伽</span>
-          <p>Suspended in soft silks, the spine decompresses, the core engages, and inversions become accessible — and joyful.</p>
+          <h3>空 中 瑜 伽</h3>
+          <span class="latin">Aerial Yoga</span>
+          <p>懸於柔軟絲綢之中，脊椎放鬆、核心啟動，倒立變得可及，也充滿樂趣。</p>
           <ul>
-            <li>Beginner aerial fundamentals</li>
-            <li>Aerial flow & strength</li>
-            <li>Restorative aerial / hammock rest</li>
-            <li>Small-group classes (max 8)</li>
+            <li>空中入門基礎</li>
+            <li>空中流動與力量</li>
+            <li>修復空中 / 吊床休息</li>
+            <li>小班教學（每堂最多 8 人）</li>
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- STUDIO GALLERY -->
 <section class="studio" id="studio">
   <div class="container">
     <div class="section-head">
-      <div class="label">The Space · 教 室 一 隅</div>
-      <h2>A studio that feels like an <em>exhale.</em></h2>
-      <p>Soft daylight, wooden floors, mirrored walls, and a wall of singing bowls waiting their turn. Drop your shoes at the door and stay a while.</p>
+      <div class="label">教 室 一 隅</div>
+      <h2>一 間 像 <em>深 長 吐 息</em> 的 教 室。</h2>
+      <p>柔和日光、木質地板、鏡牆，還有一整排靜靜等待被輕敲的頌缽。在門口脫下鞋，停留一會兒。</p>
     </div>
     <div class="studio-grid">
       <div class="studio-tile tall">
-        <img src="self4.jpg" alt="Studio with mats">
-        <div class="caption">Morning light, ready mats</div>
+        <img src="self4.jpg" alt="教室一景">
+        <div class="caption">晨光，墊已就位</div>
       </div>
       <div class="studio-tile wide">
-        <img src="self11.jpg" alt="Sound bath setup">
-        <div class="caption">A community sound bath</div>
+        <img src="self11.jpg" alt="團體頌缽">
+        <div class="caption">一場社群頌缽</div>
       </div>
       <div class="studio-tile">
-        <img src="self5.jpg" alt="Aerial silks">
-        <div class="caption">Silks, suspended</div>
+        <img src="self5.jpg" alt="空中絲綢">
+        <div class="caption">絲綢，懸於空中</div>
       </div>
       <div class="studio-tile">
-        <img src="self9.jpg" alt="Festive aerial session">
-        <div class="caption">Seasonal sessions</div>
+        <img src="self9.jpg" alt="節慶課程">
+        <div class="caption">節慶限定課程</div>
       </div>
       <div class="studio-tile tall">
-        <img src="self7.jpg" alt="Teaching with singing bowl">
-        <div class="caption">Live, in resonance</div>
+        <img src="self7.jpg" alt="頌缽教學">
+        <div class="caption">現場，於共振之中</div>
       </div>
       <div class="studio-tile">
-        <img src="self6.jpg" alt="Aerial yoga class">
-        <div class="caption">Aerial in motion</div>
+        <img src="self6.jpg" alt="空中課程">
+        <div class="caption">空中，流動之間</div>
       </div>
       <div class="studio-tile">
-        <img src="self8.jpg" alt="Multi-generational class">
-        <div class="caption">Practice without age</div>
+        <img src="self8.jpg" alt="跨世代課程">
+        <div class="caption">練習無關年齡</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SCHEDULE -->
 <section class="schedule" id="schedule">
   <div class="container">
     <div class="section-head">
-      <div class="label">Weekly Rhythm · 課 程 表</div>
-      <h2>This week's <em>regular classes.</em></h2>
-      <p>Drop-in, 8-class pass, or monthly unlimited. Private sessions available by appointment — message me to book.</p>
+      <div class="label">每 週 課 表</div>
+      <h2>本 週 <em>固 定 課 程</em>。</h2>
+      <p>單堂、八堂套票或月票無限暢上。私人課程需預約——歡迎來訊洽詢。</p>
     </div>
     <div class="table">
       <div class="row head">
-        <div>Day</div><div>Class</div><div>Time</div><div>Level</div>
+        <div>星期</div><div>課程</div><div>時間</div><div>程度</div>
       </div>
       <div class="row">
-        <div class="day">Mon</div>
-        <div class="class-name"><strong>Gentle Hatha · 溫和哈達</strong><span>Slow flow + breathwork</span></div>
-        <div class="time">7:00 – 8:00 AM</div>
-        <div><span class="level all">All Levels</span></div>
+        <div class="day">週一</div>
+        <div class="class-name"><strong>溫和哈達</strong><span>慢流動 + 呼吸練習</span></div>
+        <div class="time">07:00 – 08:00</div>
+        <div><span class="level all">全程度</span></div>
       </div>
       <div class="row">
-        <div class="day">Tue</div>
-        <div class="class-name"><strong>Aerial Fundamentals · 空中基礎</strong><span>Inversions, wraps, gentle flips</span></div>
-        <div class="time">7:30 – 9:00 PM</div>
-        <div><span class="level beg">Beginner</span></div>
+        <div class="day">週二</div>
+        <div class="class-name"><strong>空中基礎</strong><span>倒立、纏繞、輕柔翻轉</span></div>
+        <div class="time">19:30 – 21:00</div>
+        <div><span class="level beg">初學</span></div>
       </div>
       <div class="row">
-        <div class="day">Wed</div>
-        <div class="class-name"><strong>Sound Bath · 頌缽放鬆</strong><span>75-minute guided sound journey</span></div>
-        <div class="time">8:00 – 9:15 PM</div>
-        <div><span class="level all">All Levels</span></div>
+        <div class="day">週三</div>
+        <div class="class-name"><strong>頌缽放鬆</strong><span>75 分鐘引導頌缽之旅</span></div>
+        <div class="time">20:00 – 21:15</div>
+        <div><span class="level all">全程度</span></div>
       </div>
       <div class="row">
-        <div class="day">Thu</div>
-        <div class="class-name"><strong>Vinyasa Flow · 流動瑜伽</strong><span>Stronger pace, creative sequences</span></div>
-        <div class="time">7:30 – 8:45 PM</div>
-        <div><span class="level int">Intermediate</span></div>
+        <div class="day">週四</div>
+        <div class="class-name"><strong>流動瑜伽</strong><span>較強節奏，創意串聯</span></div>
+        <div class="time">19:30 – 20:45</div>
+        <div><span class="level int">中階</span></div>
       </div>
       <div class="row">
-        <div class="day">Fri</div>
-        <div class="class-name"><strong>Family Yoga · 親子瑜伽</strong><span>Multi-generational class — kids welcome</span></div>
-        <div class="time">5:00 – 6:00 PM</div>
-        <div><span class="level all">All Levels</span></div>
+        <div class="day">週五</div>
+        <div class="class-name"><strong>親子瑜伽</strong><span>跨世代課程 — 歡迎孩子同行</span></div>
+        <div class="time">17:00 – 18:00</div>
+        <div><span class="level all">全程度</span></div>
       </div>
       <div class="row">
-        <div class="day">Sat</div>
-        <div class="class-name"><strong>Restorative + Sound · 修復瑜伽 + 頌缽</strong><span>The week's gentle landing</span></div>
-        <div class="time">10:00 – 11:30 AM</div>
-        <div><span class="level all">All Levels</span></div>
+        <div class="day">週六</div>
+        <div class="class-name"><strong>修復瑜伽 + 頌缽</strong><span>一週溫柔的著陸</span></div>
+        <div class="time">10:00 – 11:30</div>
+        <div><span class="level all">全程度</span></div>
       </div>
       <div class="row">
-        <div class="day">Sun</div>
-        <div class="class-name"><strong>Outdoor Practice · 戶外練習</strong><span>Park session (weather permitting)</span></div>
-        <div class="time">8:00 – 9:15 AM</div>
-        <div><span class="level all">All Levels</span></div>
+        <div class="day">週日</div>
+        <div class="class-name"><strong>戶外練習</strong><span>公園課程（視天候而定）</span></div>
+        <div class="time">08:00 – 09:15</div>
+        <div><span class="level all">全程度</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- COMMUNITY -->
 <section class="community">
   <div class="container">
     <div class="section-head">
-      <div class="label">Community · 社 群 之 聲</div>
-      <h2>What people <em>carry home.</em></h2>
+      <div class="label">學 員 心 聲</div>
+      <h2>練 習 之 後，<em>帶 回 家 的 回 響</em>。</h2>
     </div>
     <div class="community-layout">
       <div class="community-photo">
-        <img src="self15.jpg" alt="Yoga community group photo">
+        <img src="self15.jpg" alt="瑜伽社群合照">
       </div>
       <div>
         <div class="testimonial">
           <div class="quote-mark">"</div>
-          <p>Arissa's sound bath is the only 75 minutes of the week I truly let go. I leave feeling like I just slept for ten hours.</p>
-          <div class="author"><strong>Mei L.</strong><span>SOUND BATH STUDENT</span></div>
+          <p>Arissa 的頌缽，是我整個禮拜唯一真正放下的 75 分鐘。離開教室時，我感覺像是剛睡了一場十小時的好覺。</p>
+          <div class="author"><strong>美琳</strong><span>頌缽課程學員</span></div>
         </div>
         <div class="testimonial">
           <div class="quote-mark">"</div>
-          <p>I came in skeptical of aerial yoga and left grinning upside down. She makes the impossible feel safe.</p>
-          <div class="author"><strong>James W.</strong><span>AERIAL FUNDAMENTALS</span></div>
+          <p>原本對空中瑜伽抱著懷疑走進教室，最後卻倒掛著、笑著離開。她讓看似不可能的事，感覺很安全。</p>
+          <div class="author"><strong>偉誠</strong><span>空中基礎學員</span></div>
         </div>
         <div class="testimonial">
           <div class="quote-mark">"</div>
-          <p>My eight-year-old asks every Friday if we're going to yoga. That's never happened with any other class.</p>
-          <div class="author"><strong>Yi-Ting C.</strong><span>FAMILY YOGA PARENT</span></div>
+          <p>我八歲的女兒每個週五都會問：「我們今天去瑜伽嗎？」其他任何課程都沒有發生過這種事。</p>
+          <div class="author"><strong>怡婷</strong><span>親子瑜伽家長</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <h2>Begin <em>here.</em></h2>
-    <p>New students get one complimentary trial class. Send a message and I'll help you find the right starting point — mat, sound, or sky.</p>
+    <h2>從 <em>這 裡</em> 開 始。</h2>
+    <p>新學員享一次免費體驗課。歡迎來訊，我會幫你找到適合的起點——墊上、頌缽，或空中。</p>
 
     <div class="contact-info">
       <div class="item">
-        <div class="label">Message</div>
+        <div class="label">訊 息</div>
         <div class="value">m.me/yunchiao88</div>
       </div>
       <div class="item">
-        <div class="label">Email</div>
+        <div class="label">電 郵</div>
         <div class="value">arissa@example.com</div>
       </div>
       <div class="item">
-        <div class="label">Studio</div>
-        <div class="value">Taipei, Taiwan</div>
+        <div class="label">教 室</div>
+        <div class="value">台灣 · 台北</div>
       </div>
     </div>
 
-    <a class="btn btn-primary" href="https://www.facebook.com/yunchiao88" target="_blank" rel="noopener">Send a message →</a>
+    <a class="btn btn-primary" href="https://www.facebook.com/yunchiao88" target="_blank" rel="noopener">傳送訊息 →</a>
   </div>
 </section>
 
 <footer>
-  <div class="logo">ARISSA <em>·</em> YOGA</div>
+  <div class="logo">ARISSA <em>·</em> 瑜伽</div>
   <div class="socials">
     <a href="https://www.facebook.com/yunchiao88" target="_blank" rel="noopener">Facebook</a>
     <a href="#">Instagram</a>
     <a href="#">LINE</a>
   </div>
-  <p>© 2026 Yunchiao Wang (Arissa). All rights reserved.</p>
-  <p class="tc" style="margin-top:4px;">忘記已失去；珍惜已擁有 🌿</p>
+  <p>© 2026 王芸喬（Arissa）· 版權所有</p>
+  <p style="margin-top:6px; letter-spacing:3px;">呼吸之間，回到自己 🌿</p>
 </footer>
 
 </body>
