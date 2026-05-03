@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrisa</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f1e8;
+      --surface: rgba(255, 255, 255, 0.78);
+      --text: #1d2a33;
+      --muted: #5c6b73;
+      --accent: #c85c3b;
+      --accent-2: #1f6f78;
+      --border: rgba(29, 42, 51, 0.12);
+      --shadow: 0 24px 70px rgba(31, 50, 62, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(200, 92, 59, 0.24), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(31, 111, 120, 0.2), transparent 30%),
+        linear-gradient(135deg, #fbf7f2, var(--bg));
+      padding: 24px;
+    }
+
+    main {
+      width: min(760px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      padding: 56px 40px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font: 700 0.8rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      margin: 24px 0 0;
+      max-width: 38rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font: 600 0.98rem/1 Arial, sans-serif;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 12px 28px rgba(200, 92, 59, 0.28);
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 34px rgba(200, 92, 59, 0.32);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 40px 24px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Welcome</p>
+    <h1>Arrisa</h1>
+    <p>
+      This is the first page for the Arrisa project. Replace this with your own
+      content, or use it as the starting point for a larger static website.
+    </p>
+    <a class="cta" href="https://github.com/huilucs/arrisa">View the repository</a>
+  </main>
+</body>
+</html>
