@@ -233,95 +233,6 @@
   }
   .credentials .row span { color: var(--bark-soft); font-size: 14px; }
 
-  /* ===== Movement Flow ===== */
-  .movement-flow {
-    background: linear-gradient(180deg, rgba(245, 237, 226, 0.55) 0%, rgba(255, 255, 255, 0.72) 100%);
-  }
-  .movement-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-    gap: 48px;
-    align-items: center;
-  }
-  .movement-copy p {
-    color: var(--bark-soft);
-    font-size: 16px;
-    margin-bottom: 18px;
-  }
-  .movement-points {
-    list-style: none;
-    padding: 0;
-    margin: 24px 0 0;
-  }
-  .movement-points li {
-    padding: 12px 0;
-    border-top: 1px solid var(--line);
-    color: var(--bark-soft);
-    font-size: 14px;
-  }
-  .movement-visual {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 18px;
-    align-items: end;
-  }
-  .cutout-card,
-  .sequence-card {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    box-shadow: 0 18px 45px rgba(74, 56, 38, 0.1);
-  }
-  .cutout-card {
-    padding: 22px 18px 16px;
-  }
-  .cutout-card img {
-    width: 100%;
-    max-height: 520px;
-    object-fit: contain;
-    object-position: center bottom;
-  }
-  .sequence-card {
-    padding: 18px;
-  }
-  .sequence-window {
-    overflow: hidden;
-    width: min(100%, 340px);
-    margin: 0 auto;
-    aspect-ratio: 304 / 863;
-    border-radius: 18px;
-    background:
-      radial-gradient(circle at top, rgba(184, 115, 51, 0.08), transparent 45%),
-      linear-gradient(180deg, #fffaf4 0%, #f3e7d7 100%);
-  }
-  .sequence-strip {
-    width: 600%;
-    height: 100%;
-    animation: pose-sequence 18s infinite;
-  }
-  .sequence-strip img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  .sequence-caption {
-    margin-top: 14px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--terracotta);
-    text-transform: uppercase;
-  }
-  @keyframes pose-sequence {
-    0%, 13% { transform: translateX(0); }
-    16%, 29% { transform: translateX(-16.6667%); }
-    32%, 45% { transform: translateX(-33.3333%); }
-    48%, 61% { transform: translateX(-50%); }
-    64%, 77% { transform: translateX(-66.6667%); }
-    80%, 93% { transform: translateX(-83.3333%); }
-    100% { transform: translateX(-83.3333%); }
-  }
-
   /* ===== Offerings ===== */
   .offerings .grid {
     display: grid;
@@ -546,9 +457,6 @@
     .hero { grid-template-columns: 1fr; padding: 50px 24px 70px; gap: 50px; }
     .hero h1 { font-size: 50px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .movement-layout,
-    .movement-visual { grid-template-columns: 1fr; }
-    .cutout-card img { max-height: 420px; }
     .offerings .grid { grid-template-columns: 1fr; }
     .studio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
     .studio-tile.wide { grid-column: span 2; }
@@ -558,9 +466,6 @@
     .nav-links { display: none; }
     section { padding: 70px 20px; }
     .section-head h2 { font-size: 36px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .sequence-strip { animation: none; }
   }
 </style>
 </head>
@@ -617,40 +522,6 @@
           <div class="row"><strong>Sound</strong><span>Tibetan singing bowl healing certification</span></div>
           <div class="row"><strong>Aerial</strong><span>Aerial yoga teacher training</span></div>
           <div class="row"><strong>Water</strong><span>Certified freediver — breathwork & body awareness</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="movement-flow">
-  <div class="container">
-    <div class="section-head">
-      <div class="label">Movement Flow</div>
-      <h2>See the practice unfold, <em>one pose at a time.</em></h2>
-      <p>This sits best before the class cards: visitors meet Yunchiao first, then immediately see how her movement flows from left to right.</p>
-    </div>
-    <div class="movement-layout">
-      <div class="movement-copy">
-        <p>The cutout portrait keeps the teacher visually present, while the animated pose strip shows a calm sequence without competing with the studio gallery or schedule.</p>
-        <p>Instead of packing these images into the offerings grid, this dedicated section gives them room to breathe and makes the motion easier to follow.</p>
-        <ul class="movement-points">
-          <li>Teacher identity first, movement rhythm second.</li>
-          <li>One pose visible at a time for a steadier reading pace.</li>
-          <li>Placed after About to bridge the bio and the offerings.</li>
-        </ul>
-      </div>
-      <div class="movement-visual">
-        <div class="cutout-card">
-          <img src="yunchiao-cutout.png" alt="Yunchiao portrait cutout">
-        </div>
-        <div class="sequence-card">
-          <div class="sequence-window">
-            <div class="sequence-strip">
-              <img src="yunchiao-sequence.png" alt="Yunchiao consecutive yoga poses">
-            </div>
-          </div>
-          <div class="sequence-caption">Left to right, one breath and one transition at a time</div>
         </div>
       </div>
     </div>
