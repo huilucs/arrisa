@@ -49,8 +49,8 @@
     margin: 0 auto;
     padding: 18px 32px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 24px;
   }
   .logo {
     font-family: 'Noto Serif TC', serif;
@@ -60,6 +60,34 @@
     font-weight: 500;
   }
   .logo em { font-style: normal; color: var(--terracotta); margin: 0 4px; }
+  .nav-showcase {
+    position: relative;
+    width: 280px;
+    height: 58px;
+    flex: 0 0 280px;
+    overflow: hidden;
+  }
+  .nav-showcase img {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 100%;
+    width: auto;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: nav-pose-cycle 18s infinite;
+  }
+  .nav-showcase img:nth-child(1) { left: 62px; animation-delay: 0s; }
+  .nav-showcase img:nth-child(2) { left: 100px; animation-delay: 3s; }
+  .nav-showcase img:nth-child(3) { left: 138px; animation-delay: 6s; }
+  .nav-showcase img:nth-child(4) { left: 176px; animation-delay: 9s; }
+  .nav-showcase img:nth-child(5) { left: 214px; animation-delay: 12s; }
+  .nav-showcase img:nth-child(6) { left: 244px; animation-delay: 15s; }
+  .nav-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
   .nav-links a {
     margin-left: 28px;
     font-size: 14px;
@@ -75,6 +103,11 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     letter-spacing: 1px;
+  }
+  @keyframes nav-pose-cycle {
+    0%, 12% { opacity: 1; }
+    14% { opacity: 0; }
+    16%, 100% { opacity: 0; }
   }
 
   /* ===== Hero ===== */
@@ -508,8 +541,16 @@
     .schedule .row { grid-template-columns: 1fr; gap: 8px; padding: 18px 20px; }
     .schedule .row.head { display: none; }
     .nav-links { display: none; }
+    .nav-showcase { display: none; }
     section { padding: 70px 20px; }
     .section-head h2 { font-size: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-showcase img {
+      animation: none;
+      opacity: 0;
+    }
+    .nav-showcase img:first-child { opacity: 1; }
   }
 </style>
 </head>
@@ -518,6 +559,14 @@
 <nav class="top">
   <div class="nav-inner">
     <div class="logo">ARISSA <em>·</em> 瑜伽</div>
+    <div class="nav-showcase" aria-hidden="true">
+      <img src="yunchiao-pose-1.png" alt="">
+      <img src="yunchiao-pose-2.png" alt="">
+      <img src="yunchiao-pose-3.png" alt="">
+      <img src="yunchiao-pose-4.png" alt="">
+      <img src="yunchiao-pose-5.png" alt="">
+      <img src="yunchiao-pose-6.png" alt="">
+    </div>
     <div class="nav-links">
       <a href="#about">關於</a>
       <a href="#offerings">課程</a>
